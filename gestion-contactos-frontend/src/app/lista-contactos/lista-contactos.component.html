@@ -8,10 +8,11 @@
     </tr>
   </head>
   <tbody>
-    <tr>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Email</th>
+    <tr *ngFor="let contacto of contactos">
+      <td>{{contacto.nombre}}</td>
+      <td>{{contacto.apellido}}</td>
+      <td>{{contacto.email}}</td>
+
     </tr>
   </tbody>
 </table>
