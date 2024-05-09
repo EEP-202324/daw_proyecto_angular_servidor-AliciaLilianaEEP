@@ -11,7 +11,7 @@ import com.gestion.contactos.modelo.Contacto;
 import com.gestion.contactos.repositorio.ContactoRepositorio;
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1")
 public class ContactoControlador {
 
 	@Autowired
