@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Contacto } from '../contacto';
+import { ContactoService } from '../contacto.service';
 
 @Component({
   selector: 'app-lista-contactos',
@@ -10,21 +11,14 @@ import { Contacto } from '../contacto';
 export class ListaContactosComponent implements OnInit{
 
   contactos: Contacto[];
-  constructor(){}
+  constructor(private contactoServicio:ContactoService){}
   ngOnInit(): void{
-    this.contactos = [{
-      "id":1,
-      "nombre":"Damien",
-      "apellido":"Romero",
-      "email" : "romerodamien@gmail.com"
-    },
-    {
-      "id":2,
-      "nombre":"Juliette",
-      "apellido":"Gonzalez",
-      "email" : "juliette20@gmail.com"
-    }
-  ];
+    this.obtenerContactos();
   }
-
+  //Este método hace que me suscriba a toda esa lista
+  private obtenerContactos(){
+    this.contactoServicio.obtenerListaDeContactos().subscribe(dato =>{
+      this.contactos = dato;
+    });
+  }
 }
