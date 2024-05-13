@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contacto } from '../contacto';
 import { ContactoService } from '../contacto.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-contactos',
@@ -15,6 +16,17 @@ export class ListaContactosComponent implements OnInit{
   ngOnInit(): void{
     this.obtenerContactos();
   }
+  actualizarContacto(id:number){
+    this.router.navigate(['actualizar-contacto',id]);
+  }
+
+  eliminarContacto(id:number){
+    this.contactoServicio.eliminarContacto(id).subscribe(dato => {
+      console.log(dato);
+      this.obtenerContactos();
+    })
+  }
+
   //Este método hace que me suscriba a toda esa lista
   private obtenerContactos(){
     this.contactoServicio.obtenerListaDeContactos().subscribe(dato =>{
