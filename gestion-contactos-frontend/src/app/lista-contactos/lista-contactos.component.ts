@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class ListaContactosComponent implements OnInit{
 
   contactos: Contacto[];
-  constructor(private contactoServicio:ContactoService){}
+  constructor(private contactoServicio:ContactoService, private router: Router){}
   ngOnInit(): void{
     this.obtenerContactos();
   }
@@ -22,9 +22,8 @@ export class ListaContactosComponent implements OnInit{
 
   eliminarContacto(id:number){
     this.contactoServicio.eliminarContacto(id).subscribe(dato => {
-      console.log(dato);
       this.obtenerContactos();
-    })
+    });
   }
 
   //Este método hace que me suscriba a toda esa lista
