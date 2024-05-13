@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,6 +44,20 @@ public class ContactoControlador {
 				.orElseThrow(() -> new ResourceNotFoundException("No existe el "
 						+ "contacto con el ID: " + id));
 		return ResponseEntity.ok(contacto);
+	}
+	
+	//Este método me sirve para actualizar un contacto
+	@PutMapping("/contactos/{id}")
+	public ResponseEntity<Contacto> actualizarContacto(@PathVariable Long id,@RequestBody Contacto detallesContacto){
+		Contacto contacto = repositorio.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("No existe el "
+						+ "contacto con el ID: " + id));
+		contacto.setNombre(detallesContacto.getNombre());
+		contacto.setApellido(detallesContacto.getApellido());
+		contacto.setEmail(detallesContacto.getEmail());
+		
+		Contacto contactoActualizado = repositorio.save(contacto);
+		return ResponseEntity.ok(contactoActualizado);
 	}
 
 }
