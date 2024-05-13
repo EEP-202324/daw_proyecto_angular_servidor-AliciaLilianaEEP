@@ -3,13 +3,16 @@ package com.gestion.contactos.controlador;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gestion.contactos.excepciones.ResourceNotFoundException;
 import com.gestion.contactos.modelo.Contacto;
 import com.gestion.contactos.repositorio.ContactoRepositorio;
 
@@ -31,7 +34,15 @@ public class ContactoControlador {
 	@PostMapping("/contactos")
 	public Contacto guardarContacto(@RequestBody Contacto contacto) {
 		return repositorio.save(contacto);
-		
+	}
+	
+	//Este método me sirve para buscar un contacto por ID, sino me lo encuentra, lanzará mi excepción
+	@GetMapping("/contactos/{id}")
+	public ResponseEntity<Contacto> obtenerContactoPorId(@PathVariable Long id){
+		Contacto contacto = repositorio.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("No existe el "
+						+ "contacto con el ID: " + id));
+		return ResponseEntity.ok(contacto);
 	}
 
 }
