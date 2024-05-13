@@ -22,13 +22,14 @@ export class ListaContactosComponent implements OnInit{
 
   eliminarContacto(id:number){
     this.contactoServicio.eliminarContacto(id).subscribe(dato => {
+      console.log(dato);
       this.obtenerContactos();
     });
   }
 
   //Este método hace que me suscriba a toda esa lista
   private obtenerContactos(){
-    this.contactoServicio.obtenerListaDeContactos().subscribe(dato =>{
+    this.contactoServicio.obtenerListaDeContactos().subscribe(dato => {
       this.contactos = dato;
     });
   }

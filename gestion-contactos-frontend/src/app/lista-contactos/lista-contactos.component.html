@@ -1,12 +1,13 @@
 <h2>Lista contactos</h2>
 <table class="table table-striped">
-  <head class="table-dark">
+  <thead class="table-dark">
     <tr>
       <th>Nombre</th>
       <th>Apellido</th>
       <th>Email</th>
+      <th>Acciones</th>
     </tr>
-  </head>
+  </thead>
   <tbody>
     <tr *ngFor="let contacto of contactos">
       <td>{{contacto.nombre}}</td>
