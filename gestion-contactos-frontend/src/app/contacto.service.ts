@@ -22,4 +22,19 @@ export class ContactoService {
   registrarContacto(contacto:Contacto) : Observable<Object>{
     return this.httpClient.post(`${this.baseURL}`, contacto)
   }
+
+  //Mi método que me sirve para actualizar a un contacto
+  actualizarContacto(id:number, contacto:Contacto) : Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`, contacto);
+  }
+
+  //Mi método que me sirve para obtener/buscar a un contacto
+  obtenerContactoPorId(id:number) : Observable<Contacto>{
+    return this.httpClient.get<Contacto>(`${this.baseURL}/${id}`);
+  }
+
+  //Mi método que me sirve para eliminar a un contacto
+  eliminarContacto(id:number) : Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}/${id}`);
+  }
 }
