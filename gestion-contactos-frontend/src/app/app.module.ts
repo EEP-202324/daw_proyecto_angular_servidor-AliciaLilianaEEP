@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ListaContactosComponent } from './lista-contactos/lista-contactos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegistrarContactoComponent } from './registrar-contacto/registrar-contacto.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RegistrarContactoComponent } from './registrar-contacto/registrar-conta
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()
