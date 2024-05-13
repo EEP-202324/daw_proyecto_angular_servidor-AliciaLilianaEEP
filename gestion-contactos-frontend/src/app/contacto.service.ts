@@ -17,4 +17,9 @@ export class ContactoService {
   obtenerListaDeContactos():Observable<Contacto[]>{
     return this.httpClient.get<Contacto[]>(`${this.baseURL}`);
   }
+
+  //Mi método que me sirve para registrar a un contacto
+  registrarContacto(contacto:Contacto) : Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}`, contacto)
+  }
 }
