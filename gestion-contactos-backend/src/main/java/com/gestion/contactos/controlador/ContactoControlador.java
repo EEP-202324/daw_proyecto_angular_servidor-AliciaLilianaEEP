@@ -1,10 +1,13 @@
 package com.gestion.contactos.controlador;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -57,7 +60,18 @@ public class ContactoControlador {
 		contacto.setEmail(detallesContacto.getEmail());
 		
 		Contacto contactoActualizado = repositorio.save(contacto);
-		return ResponseEntity.ok(contactoActualizado);
+		return ResponseEntity.ok(contactoActualizado); 
+	}
+	
+	@DeleteMapping("/contactos/{id}")
+	public ResponseEntity<Map<String,Boolean>> eliminarContacto(@PathVariable Long id){
+		Contacto contacto = repositorio.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("No existe el contacto con el ID : " + id));
+		
+		repositorio.delete(contacto);
+		Map<String, Boolean> respuesta = new HashMap<>();
+		respuesta.put("eliminar", Boolean.TRUE);
+		return ResponseEntity.ok(respuesta);
 	}
 
 }
