@@ -15,7 +15,8 @@
       <td>{{contacto.email}}</td>
       <td>
         <button (click)= "actualizarContacto(contacto.id)" class="btn btn-info">Editar</button>
-        <button (click)= "eliminarContacto(contacto.id)" class="btn btn-info" style="margin-left: 10px;">Eliminar</button>
+        <button (click)= "eliminarContacto(contacto.id)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+        <button (click)= "verDetallesDelContacto(contacto.id)" class="btn btn-primary" style="margin-left: 10px;">Detalles</button>
       </td>
     </tr>
   </tbody>

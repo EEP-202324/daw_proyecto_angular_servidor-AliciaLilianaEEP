@@ -33,4 +33,9 @@ export class ListaContactosComponent implements OnInit{
       this.contactos = dato;
     });
   }
+
+  //Este método me ayuda para poder ver a detalle el contacto(con sus detalles)
+  verDetallesDelContacto(id:number){
+    this.router.navigate(['empleado-detalle',id]);
+  }
 }
