@@ -63,6 +63,7 @@ public class ContactoControlador {
 		return ResponseEntity.ok(contactoActualizado); 
 	}
 	
+	//Este método me sirve para eliminar a un contacto
 	@DeleteMapping("/contactos/{id}")
 	public ResponseEntity<Map<String,Boolean>> eliminarContacto(@PathVariable Long id){
 		Contacto contacto = repositorio.findById(id)
