@@ -4,6 +4,7 @@ import { Contacto } from '../contacto';
 import { ContactoService } from '../contacto.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-lista-contactos',
@@ -13,7 +14,8 @@ import swal from 'sweetalert2';
 export class ListaContactosComponent implements OnInit{
 
   contactos: Contacto[];
-  constructor(private contactoServicio:ContactoService, private router: Router){}
+  palabraClave: string;
+  constructor(private contactoServicio:ContactoService, private router: Router, private http: HttpClient){}
   ngOnInit(): void{
     this.obtenerContactos();
   }
@@ -55,5 +57,12 @@ export class ListaContactosComponent implements OnInit{
   //Este método me ayuda para poder ver a detalle el contacto(con sus detalles)
   verDetallesDelContacto(id:number){
     this.router.navigate(['contacto-detalles',id]);
+  }
+
+  buscarContactos() {
+    this.http.get<any[]>('http://localhost:8080/api/v1/contactos/buscar?palabraClave=' + this.palabraClave)
+      .subscribe(data => {
+        this.contactos = data;
+      });
   }
 }
