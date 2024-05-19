@@ -75,6 +75,7 @@ public class ContactoControlador {
 		return ResponseEntity.ok(respuesta);
 	}
 	
+	//Este método me sirve para buscar a un contacto
 	@GetMapping("/contactos/buscar")
 	public List<Contacto> buscarContactosPorPalabraClave(@Param("palabraClave") String palabraClave) {
 	    return repositorio.findByNombreContainingOrApellidoContainingOrEmailContaining(palabraClave, palabraClave, palabraClave);
