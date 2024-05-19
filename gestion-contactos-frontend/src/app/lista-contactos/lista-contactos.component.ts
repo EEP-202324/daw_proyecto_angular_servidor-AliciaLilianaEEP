@@ -13,6 +13,9 @@ import swal from 'sweetalert2';
 export class ListaContactosComponent implements OnInit{
 
   contactos: Contacto[];
+  currentPage: number = 1;
+  pageSize: number = 10; // Tamaño de la página
+
   constructor(private contactoServicio:ContactoService, private router: Router){}
   ngOnInit(): void{
     this.obtenerContactos();
@@ -20,6 +23,8 @@ export class ListaContactosComponent implements OnInit{
   actualizarContacto(id:number){
     this.router.navigate(['actualizar-contacto',id]);
   }
+
+  //Este método me sirve para eliminar el contacto solamente si al contestar la pregunta dicen "SI ELIMINAR"
   eliminarContacto(id:number){
     swal.fire({
       title: '¿Estás seguro?',
@@ -46,14 +51,25 @@ export class ListaContactosComponent implements OnInit{
   }
 
   //Este método hace que me suscriba a toda esa lista
-  private obtenerContactos(){
-    this.contactoServicio.obtenerListaDeContactos().subscribe(dato => {
-      this.contactos = dato;
-    });
-  }
+  //private obtenerContactos(){
+    //this.contactoServicio.obtenerListaDeContactos(this.currentPage, this.pageSize)
+      //.subscribe(contactos => this.contactos = contactos);
+   // };
 
   //Este método me ayuda para poder ver a detalle el contacto(con sus detalles)
   verDetallesDelContacto(id:number){
     this.router.navigate(['contacto-detalles',id]);
   }
+
+  // Método para obtener los contactos de forma paginada
+obtenerContactos() {
+  this.contactoServicio.obtenerListaDeContactos(this.currentPage, this.pageSize)
+    .subscribe(contactos => this.contactos = contactos);
 }
+
+// Método para cambiar de página
+cambiarPagina(page: number) {
+  this.currentPage = page;
+  this.obtenerContactos();
+}
+  }

@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gestion.contactos.excepciones.ResourceNotFoundException;
@@ -28,11 +32,21 @@ public class ContactoControlador {
 	@Autowired
 	private ContactoRepositorio repositorio;
 
-	//Este método sirve para listar todos los contactos
-	@GetMapping("/contactos")
-	public List<Contacto> listarTodosLosContactos() {
-		return repositorio.findAll();
-	}
+	// Este método sirve para listar todos los contactos paginados
+    @GetMapping("/contactos")
+    public ResponseEntity<Page<Contacto>> listarTodosLosContactosPaginados(
+        @RequestParam(defaultValue = "0") Integer page,
+        @RequestParam(defaultValue = "10") Integer size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Contacto> contactos = repositorio.findAll(pageable);
+        return ResponseEntity.ok(contactos);
+    }
+    
+    // Este método sirve para listar todos los contactos sin paginación
+    @GetMapping("/contactos/todos")
+    public List<Contacto> listarTodosLosContactosSinPaginacion() {
+        return repositorio.findAll();
+    }
 	
 	//Este método me sirve para guardar el contacto
 	@PostMapping("/contactos")
@@ -40,14 +54,6 @@ public class ContactoControlador {
 		return repositorio.save(contacto);
 	}
 	
-	//Este método me sirve para buscar un contacto por ID, sino me lo encuentra, lanzará mi excepción
-	@GetMapping("/contactos/{id}")
-	public ResponseEntity<Contacto> obtenerContactoPorId(@PathVariable Long id){
-		Contacto contacto = repositorio.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("No existe el "
-						+ "contacto con el ID: " + id));
-		return ResponseEntity.ok(contacto);
-	}
 	
 	//Este método me sirve para actualizar un contacto
 	@PutMapping("/contactos/{id}")

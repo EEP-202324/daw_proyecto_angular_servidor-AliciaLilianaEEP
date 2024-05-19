@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Contacto } from './contacto';
@@ -14,9 +14,9 @@ export class ContactoService {
   constructor(private httpClient : HttpClient) { }
 
   //Mi método que me sirve para obtener los contactos
-  obtenerListaDeContactos():Observable<Contacto[]>{
-    return this.httpClient.get<Contacto[]>(`${this.baseURL}`);
-  }
+  //obtenerListaDeContactos():Observable<Contacto[]>{
+    //return this.httpClient.get<Contacto[]>(`${this.baseURL}`);
+  //}
 
   //Mi método que me sirve para registrar a un contacto
   registrarContacto(contacto:Contacto) : Observable<Object>{
@@ -36,5 +36,13 @@ export class ContactoService {
   //Mi método que me sirve para eliminar a un contacto
   eliminarContacto(id:number) : Observable<Object>{
     return this.httpClient.delete(`${this.baseURL}/${id}`);
+  }
+
+  obtenerListaDeContactos(page: number, pageSize: number): Observable<Contacto[]> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('pageSize', pageSize.toString());
+
+    return this.httpClient.get<Contacto[]>(this.baseURL, { params });
   }
 }
