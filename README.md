@@ -32,7 +32,7 @@ Para el correcto uso de esta aplicación es necesario:
 5. Iniciar el frontend ejecutando `npm install` seguido de `ng serve`.
 
 ### Enlace al vídeo exlicativo de la app:
-https://www.
+https://eepmad-my.sharepoint.com/:v:/g/personal/aliliana-perez1_eep-igroup_com/EXPS1Kr-leFKg7pXkfZc2QUBwhAR8Y2Khwa1eJdB6T8rRw?e=6Mx5KS&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
 ### Contacto
 - Alicia Pérez
@@ -72,7 +72,7 @@ For the correct use of this application, it is necessary to:
 5. Start the frontend by running `npm install` followed by `ng serve`.
 
 ### Link to the App Explanation Video:
-https://www.
+https://eepmad-my.sharepoint.com/:v:/g/personal/aliliana-perez1_eep-igroup_com/EXPS1Kr-leFKg7pXkfZc2QUBwhAR8Y2Khwa1eJdB6T8rRw?e=6Mx5KS&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
 ### Contact
 - Alicia Pérez
