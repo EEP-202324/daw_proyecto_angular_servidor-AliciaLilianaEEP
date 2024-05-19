@@ -23,7 +23,7 @@ export class ListaContactosComponent implements OnInit{
   eliminarContacto(id:number){
     swal.fire({
       title: '¿Estás seguro?',
-      text: 'Confirma si deseas eliminar al empleado',
+      text: 'Confirma si deseas eliminar al contacto',
       icon: 'warning',  // Cambiado de 'type' a 'icon'
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -36,8 +36,8 @@ export class ListaContactosComponent implements OnInit{
           console.log(dato);
           this.obtenerContactos();
           swal.fire(
-            'Empleado eliminado',
-            'El empleado ha sido eliminado con exito',
+            'Contacto eliminado',
+            'El contacto ha sido eliminado con exito',
             'success'
           )
         })
@@ -54,6 +54,6 @@ export class ListaContactosComponent implements OnInit{
 
   //Este método me ayuda para poder ver a detalle el contacto(con sus detalles)
   verDetallesDelContacto(id:number){
-    this.router.navigate(['empleado-detalles',id]);
+    this.router.navigate(['contacto-detalles',id]);
   }
 }

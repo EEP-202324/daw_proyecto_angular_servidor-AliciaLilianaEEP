@@ -35,7 +35,7 @@
       [(ngModel)] = "contacto.apellido"
       name = "apellido"
       required
-      minlength="4"
+      minlength="2"
       maxlength="10"
       placeholder="Digite su apellido "
       #apellido = "ngModel"
@@ -45,7 +45,7 @@
           Digite su apellido por favor
         </div>
         <div *ngIf="apellido.errors.minlength">
-          El apellido tiene que contener como mínimo 4 caracteres
+          El apellido tiene que contener como mínimo 2 caracteres
         </div>
         <div *ngIf="apellido.errors.maxlength">
           El apellido tiene que contener como máximo 10 caracteres

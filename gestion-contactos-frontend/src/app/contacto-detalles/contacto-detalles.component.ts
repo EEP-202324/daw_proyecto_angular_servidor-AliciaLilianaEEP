@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Contacto } from '../contacto';
 import { ActivatedRoute } from '@angular/router';
 import { ContactoService } from '../contacto.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contacto-detalles',
   templateUrl: './contacto-detalles.component.html',
-  styleUrl: './contacto-detalles.component.css'
+  styleUrls: ['./contacto-detalles.component.css']
 })
 export class ContactoDetallesComponent implements OnInit{
 
@@ -19,6 +20,7 @@ export class ContactoDetallesComponent implements OnInit{
     this.contacto = new Contacto();
     this.contactoServicio.obtenerContactoPorId(this.id).subscribe(dato => {
       this.contacto = dato;
+      swal.fire(`Detalles del contacto ${this.contacto.nombre}`);
     })
   }
 
