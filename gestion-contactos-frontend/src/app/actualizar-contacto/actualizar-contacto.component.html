@@ -9,8 +9,8 @@
       [(ngModel)] = "contacto.nombre"
       name="nombre"
       required
-      minlength="4"
-      maxlength="10"
+      minlength="3"
+      maxlength="30"
       placeholder="Digite su nombre "
       #nombre = "ngModel"
       >
@@ -19,10 +19,10 @@
           Digite su nombre por favor
         </div>
         <div *ngIf="nombre.errors.minlength">
-          El nombre tiene que contener como mínimo 4 caracteres
+          El nombre tiene que contener como mínimo 3 caracteres
         </div>
         <div *ngIf="nombre.errors.maxlength">
-          El nombre tiene que contener como máximo 10 caracteres
+          El nombre tiene que contener como máximo 30 caracteres
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
       name = "apellido"
       required
       minlength="2"
-      maxlength="10"
+      maxlength="30"
       placeholder="Digite su apellido "
       #apellido = "ngModel"
       >
@@ -48,7 +48,7 @@
           El apellido tiene que contener como mínimo 2 caracteres
         </div>
         <div *ngIf="apellido.errors.maxlength">
-          El apellido tiene que contener como máximo 10 caracteres
+          El apellido tiene que contener como máximo 30 caracteres
         </div>
       </div>
     </div>
