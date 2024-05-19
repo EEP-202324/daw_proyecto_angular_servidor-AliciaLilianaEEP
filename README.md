@@ -2,7 +2,7 @@
 ## PROYECTO AULA: GESTIÓN DE CONTACTOS
 
 ### Descripción
-El proyecto AULA GESTIÓN DE CONTACTOS es una aplicación web diseñada para facilitar la capturación y almacenamiento de información de los participantes del evento AULA intersados en el centro EEP iGROUP. 
+El proyecto AULA GESTIÓN DE CONTACTOS es una aplicación web diseñada para facilitar la capturación y almacenamiento de información de los participantes del evento AULA interesados en el centro EEP iGROUP. 
 Esta aplicación permite a los voluntarios, maestros, u organizadores del Stand del centro, registrar los datos de los asistentes de manera rápida y eficiente, ayudando así a mantener un registro organizado y accesible para futuras referencias.
 
 ### Funcionalidades principales
@@ -32,7 +32,7 @@ Para el correcto uso de esta aplicación es necesario:
 5. Iniciar el frontend ejecutando `npm install` seguido de `ng serve`.
 
 ### Enlace al vídeo exlicativo de la app:
-https://www.
+https://eepmad-my.sharepoint.com/:v:/g/personal/aliliana-perez1_eep-igroup_com/EXPS1Kr-leFKg7pXkfZc2QUBwhAR8Y2Khwa1eJdB6T8rRw?e=6Mx5KS&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
 ### Contacto
 - Alicia Pérez
@@ -72,7 +72,7 @@ For the correct use of this application, it is necessary to:
 5. Start the frontend by running `npm install` followed by `ng serve`.
 
 ### Link to the App Explanation Video:
-https://www.
+https://eepmad-my.sharepoint.com/:v:/g/personal/aliliana-perez1_eep-igroup_com/EXPS1Kr-leFKg7pXkfZc2QUBwhAR8Y2Khwa1eJdB6T8rRw?e=6Mx5KS&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
 ### Contact
 - Alicia Pérez
