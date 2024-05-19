@@ -2,7 +2,7 @@
 ## PROYECTO AULA: GESTIÓN DE CONTACTOS
 
 ### Descripción
-El proyecto AULA GESTIÓN DE CONTACTOS es una aplicación web diseñada para facilitar la capturación y almacenamiento de información de los participantes del evento AULA intersados en el centro EEP iGROUP. 
+El proyecto AULA GESTIÓN DE CONTACTOS es una aplicación web diseñada para facilitar la capturación y almacenamiento de información de los participantes del evento AULA interesados en el centro EEP iGROUP. 
 Esta aplicación permite a los voluntarios, maestros, u organizadores del Stand del centro, registrar los datos de los asistentes de manera rápida y eficiente, ayudando así a mantener un registro organizado y accesible para futuras referencias.
 
 ### Funcionalidades principales
